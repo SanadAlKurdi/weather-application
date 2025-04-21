@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">WeatherApplication</string>
+    <string name="search">search</string>
+    <string name="textview">TextView</string>
+    <string name="textview1">TextView1</string>
+    <string name="apiKey">b06c50f28e8e5841870067eb25cc00f1</string>
+</resources>

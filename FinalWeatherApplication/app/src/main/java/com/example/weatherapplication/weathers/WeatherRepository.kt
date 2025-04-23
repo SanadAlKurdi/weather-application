@@ -34,13 +34,13 @@ class WeatherRepository() {
             val response = RetrofitInstance.api.getForecastWeather(cityName, units, apiKey)
             Result.success(response)
         } catch (e: IOException) {
-            context?.showToast("No internet connection. Please check your network.")
+            context?.showToast("There is no internet connection")
             Result.failure(e)
         } catch (e: HttpException) {
-            context?.showToast("City not found. Please try another name.")
+            context?.showToast("City not found. Please try another name")
             Result.failure(e)
         } catch (e: Exception) {
-            context?.showToast("Something went wrong. Please try again.")
+            context?.showToast("Something went wrong. Please try again")
             Result.failure(e)
         }
     }

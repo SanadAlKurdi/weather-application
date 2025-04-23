@@ -1,5 +1,6 @@
 package com.example.weatherapplication
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -65,7 +66,8 @@ class DetailsActivity : AppCompatActivity() {
                     val humidity = forecast?.main?.humidity
                     val dayFormat = SimpleDateFormat("EE", Locale.getDefault())
                     val dayName =
-                        (forecast?.dt?.times(1000))?.toLong()?.let { dayFormat.format(Date(it)) }
+                        (forecast?.dt?.times(1000))?.toLong()
+                            ?.let { dayFormat.format(Date(it)) }
                     xAxisLabels.add(dayName.toString())
                     forecast?.main?.temp?.toFloat()?.let {
                         entries.add(
@@ -104,6 +106,9 @@ class DetailsActivity : AppCompatActivity() {
                     lineChart.data = lineData
                     lineChart.invalidate()
                 }
+            }.onFailure {
+                startActivity(Intent(this@DetailsActivity, SearchActivity::class.java))
+                finish()
             }
         }
     }
